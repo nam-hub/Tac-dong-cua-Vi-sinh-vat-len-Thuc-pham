@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mô phỏng Tác động của Vi sinh vật lên Thực phẩm</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tác động của Vi sinh vật lên Thực phẩm</h1>
+            <p class="description">Khám phá cách vi sinh vật ảnh hưởng đến thực phẩm qua thời gian, điều kiện bảo quản, và nhiệt độ. Quan sát sự thay đổi về hình dạng, màu sắc, và mức độ hư hỏng.</p>
+        </header>
+
+        <div class="selection-area">
+            <div class="food-selection">
+                <h2><i class="fas fa-utensils"></i> Chọn thực phẩm:</h2>
+                <div class="food-options">
+                    <div class="option active" data-food="cheese" role="button" tabindex="0" aria-label="Chọn Phô mai">
+                        <i class="fas fa-cheese"></i>
+                        <span>Phô mai</span>
+                    </div>
+                    <div class="option" data-food="apple" role="button" tabindex="0" aria-label="Chọn Táo">
+                        <i class="fas fa-apple-alt"></i>
+                        <span>Táo</span>
+                    </div>
+                    <div class="option" data-food="bread" role="button" tabindex="0" aria-label="Chọn Bánh mì">
+                        <i class="fas fa-bread-slice"></i>
+                        <span>Bánh mì</span>
+                    </div>
+                    <div class="option" data-food="yogurt" role="button" tabindex="0" aria-label="Chọn Sữa chua">
+                        <i class="fas fa-bowl-food"></i>
+                        <span>Sữa chua</span>
+                    </div>
+                    <div class="option" data-food="soup" role="button" tabindex="0" aria-label="Chọn Canh">
+                        <i class="fas fa-utensil-spoon"></i>
+                        <span>Canh</span>
+                    </div>
+                    <div class="option" data-food="pork" role="button" tabindex="0" aria-label="Chọn Thịt lợn">
+                        <i class="fas fa-drumstick-bite"></i>
+                        <span>Thịt lợn</span>
+                    </div>
+                    <div class="option" data-food="fish" role="button" tabindex="0" aria-label="Chọn Cá">
+                        <i class="fas fa-fish"></i>
+                        <span>Cá</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="time-selection">
+                <h2><i class="fas fa-clock"></i> Chọn thời gian:</h2>
+                <div class="time-options">
+                    <div class="option active" data-time="0" role="button" tabindex="0" aria-label="Chọn Hiện tại">
+                        <i class="fas fa-calendar-day"></i>
+                        <span>Hiện tại</span>
+                    </div>
+                    <div class="option" data-time="3" role="button" tabindex="0" aria-label="Chọn 3 ngày">
+                        <i class="fas fa-calendar-week"></i>
+                        <span>3 ngày</span>
+                    </div>
+                    <div class="option" data-time="5" role="button" tabindex="0" aria-label="Chọn 5 ngày">
+                        <i class="fas fa-calendar-week"></i>
+                        <span>5 ngày</span>
+                    </div>
+                    <div class="option" data-time="7" role="button" tabindex="0" aria-label="Chọn 7 ngày">
+                        <i class="fas fa-calendar-week"></i>
+                        <span>7 ngày</span>
+                    </div>
+                    <div class="option" data-time="10" role="button" tabindex="0" aria-label="Chọn 10 ngày">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>10 ngày</span>
+                    </div>
+                    <div class="option" data-time="15" role="button" tabindex="0" aria-label="Chọn 15 ngày">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>15 ngày</span>
+                    </div>
+                    <div class="option" data-time="20" role="button" tabindex="0" aria-label="Chọn 20 ngày">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>20 ngày</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="condition-selection">
+                <h2><i class="fas fa-thermometer-half"></i> Điều kiện bảo quản:</h2>
+                <div class="condition-options">
+                    <div class="option active" data-condition="normal" role="button" tabindex="0" aria-label="Chọn điều kiện thường">
+                        <i class="fas fa-home"></i>
+                        <span>Thường</span>
+                    </div>
+                    <div class="option" data-condition="fridge" role="button" tabindex="0" aria-label="Chọn tủ lạnh">
+                        <i class="fas fa-snowflake"></i>
+                        <span>Tủ lạnh</span>
+                    </div>
+                    <div class="option" data-condition="hot" role="button" tabindex="0" aria-label="Chọn nóng ẩm">
+                        <i class="fas fa-temperature-high"></i>
+                        <span>Nóng ẩm</span>
+                    </div>
+                </div>
+                <div class="temperature-slider">
+                    <label for="temperature">Nhiệt độ (°C):</label>
+                    <input type="range" id="temperature" min="20" max="30" value="25">
+                    <div class="temperature-value" id="temperatureValue">25°C</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="simulation-area">
+            <div class="food-display-container">
+                <div class="day-indicator">
+                    <i class="fas fa-calendar-check"></i>
+                    <span id="dayText">Hiện tại</span>
+                </div>
+                <div class="spoilage-bar">
+                    <div class="spoilage-bar-fill" id="spoilageBar" style="width: 0%"></div>
+                    <span class="spoilage-bar-text" id="spoilageText">0% hư hỏng</span>
+                </div>
+                <div class="food-display">
+                    <div class="food-item cheese darken-0" id="foodItem">
+                        <div class="food-name" id="foodName">Phô mai</div>
+                        <div class="microbes" id="microbesContainer"></div>
+                        <div class="mold mold-0"></div>
+                        <div class="mold mold-1"></div>
+                        <div class="mold mold-2"></div>
+                        <div class="mold mold-3"></div>
+                        <div class="mold mold-4"></div>
+                    </div>
+                </div>
+                <button class="reset-btn" id="resetBtn" role="button" aria-label="Bắt đầu lại mô phỏng">
+                    <i class="fas fa-redo-alt"></i>
+                    <span>Bắt đầu lại</span>
+                </button>
+            </div>
+
+            <div class="info-panel">
+                <h3 class="info-title"><i class="fas fa-info-circle"></i> <span id="infoTitle">Phô mai - Hiện tại</span></h3>
+                <div class="info-content" id="infoContent">
+                    <p>Phô mai tươi ngon, có thể sử dụng ngay. Vi khuẩn có lợi trong quá trình lên men đã tạo ra hương vị đặc trưng.</p>
+                    <div class="microbe-info">
+                        <h4><i class="fas fa-microscope"></i> Vi sinh vật hiện diện:</h4>
+                        <p id="microbeInfoText">Lactobacillus, Streptococcus - Vi khuẩn lên men có lợi</p>
+                    </div>
+                    <div class="benefits">
+                        <h4><i class="fas fa-thumbs-up"></i> Lợi ích:</h4>
+                        <ul>
+                            <li>Chứa probiotic tốt cho hệ tiêu hóa</li>
+                            <li>Giàu protein và canxi</li>
+                            <li>Hỗ trợ phát triển xương và răng</li>
+                        </ul>
+                    </div>
+                    <div class="harm">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Tác hại:</h4>
+                        <ul>
+                            <li>Chưa có tác hại đáng kể</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script.js">
+        
+    </script>
+</body>
+</html>
