@@ -283,11 +283,48 @@
             box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3);
         }
 
-        .yogurt {
-            background: linear-gradient(135deg, #f8f9fa, #ced4da);
-            border-radius: 50% 50% 0 0;
-            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
-        }
+.yogurt {
+      top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: relative;
+  width: 200px;
+  height: 220px;
+  background: linear-gradient(180deg, #d0ebff 0%, #f5fbff 100%);
+  clip-path: polygon(30px 0, 170px 0, 190px 220px, 10px 220px);
+  border: 4px solid #a3d2ff;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* Phần sữa bên trong */
+.yogurt::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 65%;
+  background: linear-gradient(180deg, #ffffff 0%, #fefefe 100%);
+  clip-path: polygon(10px 0, 190px 0, 180px 140px, 20px 140px);
+  border-radius: 10px 10px 0 0;
+}
+
+/* Nắp sữa chua */
+.yogurt::after {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: -10px;
+  width: 220px;
+  height: 50px;
+  background: linear-gradient(135deg, #cce8ff, #e0f4ff);
+  clip-path: polygon(0 50%, 20px 0, 200px 0, 220px 50%);
+  border: 3px solid #a3d2ff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
 
         .soup {
             background: linear-gradient(135deg, #f76707, #d9480f);
@@ -302,10 +339,44 @@
         }
 
         .fish {
-            background: linear-gradient(135deg, #74c6e8, #3498db);
-            clip-path: polygon(10% 50%, 30% 20%, 70% 20%, 90% 50%, 70% 80%, 30% 80%);
-            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3);
+                  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 150px;
+  background: linear-gradient(90deg, #b7e2ff 0%, #7fc8ff 40%, #5ca9ff 70%, #3a7cff 100%);
+  clip-path: path("M10,75 C50,20 200,20 280,75 C200,130 50,130 10,75 Z"); 
+  border-radius: 20px;
+  box-shadow:
+    inset -8px 0 20px rgba(0, 0, 0, 0.2),
+    0 8px 25px rgba(0, 0, 0, 0.25);
         }
+.fish::before {
+  content: "";
+  position: absolute;
+  left: 35px;
+  top: 55px;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle at 40% 40%, #fff 40%, #ccc 80%);
+  border-radius: 50%;
+  border: 2px solid #333;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  z-index: 3;
+}
+.fish::after {
+  content: "";
+  position: absolute;
+  left: 45px;
+  top: 65px;
+  width: 12px;
+  height: 12px;
+  background: black;
+  border-radius: 50%;
+  box-shadow: 1px 1px 2px rgba(255,255,255,0.3) inset;
+  z-index: 4;
+}
+
 
         .food-name {
             font-size: 1.8rem;
