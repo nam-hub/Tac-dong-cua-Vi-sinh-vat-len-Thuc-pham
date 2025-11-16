@@ -650,3 +650,37 @@
                 font-size: 1.3rem;
             }
         }
+
+/* === BACK BUTTON === */
+.back-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2b3a55, #4a6fa5);
+  border: none;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, box-shadow 0.3s;
+  z-index: 9999;
+}
+
+.back-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+.back-btn:active {
+  transform: scale(0.95);
+}
+
+.back-btn svg {
+  width: 28px;
+  height: 28px;
+  fill: #fff;
+}
