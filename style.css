@@ -23,7 +23,7 @@
         }
 
         body {
-            background: linear-gradient(145deg, #0b7285, #1864ab);
+background: linear-gradient(145deg, #4aadf3, #ffffffbf);
             color: var(--dark);
             line-height: 1.6;
             min-height: 100vh;
@@ -658,21 +658,45 @@
   right: 30px;
   width: 60px;
   height: 60px;
-  border-radius: 50%;
-    background: linear-gradient(135deg, #b84bff, #ffffff);
-border: none;
+    border-radius: 50% 50% 0 50%;
+    background: linear-gradient(135deg, #2b3a55, #4a6fa5);
+  border: none;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s, box-shadow 0.3s;
+  transition: all 0.5s ease;
   z-index: 9999;
+    animation: bounce 1s infinite ease-in-out;
+}
+
+  @keyframes bounce {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-30px);
+  }
+  40% {
+    transform: translateX(0);
+  }
+  60% {
+    transform: translateX(-20px);
+  }
+  80% {
+    transform: translateX(0);
+  }
+
+
 }
 
 .back-btn:hover {
-  transform: translateY(-5px) scale(1.05);
+  transform: translateY(-5px) scale(1.09);
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+  transform: rotate(180deg);
+      border-radius: 40% 20% 20% 20%;
+
 }
 
 .back-btn:active {
@@ -682,5 +706,5 @@ border: none;
 .back-btn svg {
   width: 28px;
   height: 28px;
-  fill: #0D1117;
+  fill: #fff;
 }
